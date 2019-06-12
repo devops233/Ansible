@@ -1,0 +1,9 @@
+---
+  - hosts: all
+    vars: 
+     description: this is Test
+    tasks:
+      - name: Template a file to /etc/files.conf
+        template:
+            src: info.j2
+            dest: /etc/file.conf 

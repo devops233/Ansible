@@ -1,0 +1,10 @@
+---
+  - hosts: all 
+    tasks: 
+       - name: create a file on tmp directory
+         file: path=/tmp/devops   state=touch
+
+
+       - name: create a directory on tmp folder 
+         file: path=/tmp/kelly    state=directory
+

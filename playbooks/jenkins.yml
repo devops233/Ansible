@@ -1,0 +1,12 @@
+---
+  - hosts: Rhel
+    tasks:
+	   
+      - name: add the reposoitory in in rhel
+        command: curl --silent --location http://pkg.jenkins-ci.org/redhat-stable/jenkins.repo | tee /etc/yum.repos.d/jenkins.repo && rpm --import https://jenkins-ci.org/redhat/jenkins-ci.org.key
+	  
+      - name: install the jenkins 
+        yum: pkg=jenkins      state=present
+		 
+      - name: start the jenkins service 
+        service: name=jenkins  state= started   enabled=yes

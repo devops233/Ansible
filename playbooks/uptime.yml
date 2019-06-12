@@ -1,0 +1,5 @@
+---
+ - hosts: all
+   tasks:
+     task:to see the uptime of every machine
+     shell: uptime

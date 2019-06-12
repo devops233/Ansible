@@ -1,0 +1,5 @@
+---
+  - hosts: all
+    tasks:
+     - name: uninstall the tree package
+       yum: pkg=tree   state=absent

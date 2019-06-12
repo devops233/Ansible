@@ -1,0 +1,10 @@
+--- 
+ - hosts: all
+   tasks: 
+    - name: create users acorss the clients
+      user: 
+        name: "{{item}}"
+      with_items: 
+             - user1
+             - user2 
+             - user3

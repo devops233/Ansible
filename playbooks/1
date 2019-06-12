@@ -1,0 +1,14 @@
+---
+ - hosts: all
+   tasks:
+    - name: run command
+      shell: uptime
+      register: out
+  
+    - name: install pack
+      yum: name=wget state=present
+      register: yumm
+  
+    - debug: var=out
+    - debug: var=out.stdout
+    - debug: var=yumm

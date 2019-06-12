@@ -1,0 +1,16 @@
+---
+ - hosts: all
+   tasks: 
+     
+      - name: creat th file on across al clients
+        file: path=/root/"{{item}}"    state=touch 
+        with_items: 
+               - f1
+               - f2
+               - f3
+      - name: create a directory o across all the clients 
+        file: path=/tmp/"{{item}}"     state=directory
+        with_items: 
+                - d1
+                - d2
+                - d3

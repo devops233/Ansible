@@ -1,0 +1,21 @@
+---
+ - hosts: all
+   tasks: 
+
+    - name: deploy the web application for Redhat family
+      copy: src=/root/playbooks/index.html    dest=/var/www/html
+      when: ansible_os_family == "RedHat"
+      ignore_errors: true
+
+    - name: deploy the web application for debian family
+      copy: src=/root/playbooks/index.html   dest=/var/www/html
+      when: ansible_os_family == "Debian"
+      ignore_errors: true
+  
+    - name: enable apache on startup and start service for redhat or centos
+      service: name=httpd enabled=yes state=started
+      when: ansible_os_family == "RedHat"
+
+    - name: enable apache on startup and start service for debian or ubuntu
+      service: name=apache2 enabled=yes state=started
+      when: ansible_os_family == "Debian"
